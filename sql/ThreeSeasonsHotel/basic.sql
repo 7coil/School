@@ -1,4 +1,7 @@
-USE TSH;
+-- () { :; }; exec mysql -u root --local-infile -t < ${0}
+
+-- It is a mySQL convention to use a lowercase database name.
+USE tsh;
 
 -- Clean the database
 SET FOREIGN_KEY_CHECKS = 0;
@@ -56,7 +59,8 @@ CREATE TABLE bookings (
     ID          INT               PRIMARY KEY AUTO_INCREMENT,
     CustomerID  INT,
     Price       INT,
-    Created     DATE,
+    StartDate   DATE,
+    EndDate     DATE,
     FOREIGN KEY (CustomerID) REFERENCES customers(ID)
 );
 
