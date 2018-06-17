@@ -5,29 +5,32 @@ USE tsh;
 
 -- Clean the database
 SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE hotels;
 DROP TABLE rooms;
-DROP TABLE employees;
 DROP TABLE roomBookings;
 DROP TABLE bookings;
 DROP TABLE customers;
 SET FOREIGN_KEY_CHECKS = 1;
 
--- Create tables
-CREATE TABLE hotels (
-    ID          INT               PRIMARY KEY AUTO_INCREMENT,
-    Street      TEXT,
-    City        TEXT,
-    Country     TEXT,
-    PostZipCode VARCHAR(10)
-);
-
 CREATE TABLE rooms (
     ID          INT               PRIMARY KEY AUTO_INCREMENT,
-    HotelID     INT,
-    Floor       VARCHAR(3),
-    Class       VARCHAR(10),
-    FOREIGN KEY (HotelID) REFERENCES hotels(ID)
+    roomNumber  VARCHAR(10),
+    floor       VARCHAR(4),
+    class       VARCHAR(10),
+    cost        INT,
+    occupancy   INT,
+    singleBed   INT,
+    doubleBed   INT,
+    tripleBed   INT,
+    queenBed    INT,
+    kingBed     INT,
+    twinBed     INT,
+    ensuite     BOOLEAN,
+    minibar     BOOLEAN,
+    jacuzzi     BOOLEAN,
+    seaView     BOOLEAN,
+    family      BOOLEAN,
+    honeyMoon   BOOLEAN,
+    UNIQUE (roomNumber)
 );
 
 CREATE TABLE customers (
@@ -47,8 +50,8 @@ CREATE TABLE bookings (
     ID          INT               PRIMARY KEY AUTO_INCREMENT,
     CustomerID  INT,
     Price       INT,
-    StartDate   DATE,
-    EndDate     DATE,
+    StartDate   DATETIME,
+    EndDate     DATETIME,
     FOREIGN KEY (CustomerID) REFERENCES customers(ID)
 );
 
