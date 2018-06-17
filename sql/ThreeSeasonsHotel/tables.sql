@@ -26,34 +26,22 @@ CREATE TABLE rooms (
     ID          INT               PRIMARY KEY AUTO_INCREMENT,
     HotelID     INT,
     Floor       VARCHAR(3),
-    Class       INT, -- Enum
-    FOREIGN KEY (HotelID) REFERENCES hotels(ID)
-);
-
-CREATE TABLE employees (
-    ID          INT               PRIMARY KEY AUTO_INCREMENT,
-    HotelID     INT,
-    Title       INT, -- Enum
-    Surname     VARCHAR(255),
-    OtherNames  VARCHAR(255),
-    NationalInsurance   VARCHAR(10),
-    Joined      DATE,
-    Salary      INT,
+    Class       VARCHAR(10),
     FOREIGN KEY (HotelID) REFERENCES hotels(ID)
 );
 
 CREATE TABLE customers (
     ID          INT               PRIMARY KEY AUTO_INCREMENT,
-    Title       INT, -- Enum
+    Title       VARCHAR(6),
     Surname     VARCHAR(255),
     OtherNames  VARCHAR(255),
+    Gender      INT, -- https://en.wikipedia.org/wiki/ISO/IEC_5218
     Telephone   VARCHAR(255),
     Street      VARCHAR(255),
     City        VARCHAR(255),
     Country     VARCHAR(2),
     PostZipCode VARCHAR(255)
 );
-
 
 CREATE TABLE bookings (
     ID          INT               PRIMARY KEY AUTO_INCREMENT,
@@ -63,7 +51,6 @@ CREATE TABLE bookings (
     EndDate     DATE,
     FOREIGN KEY (CustomerID) REFERENCES customers(ID)
 );
-
 
 CREATE TABLE roomBookings (
     ID          INT               PRIMARY KEY AUTO_INCREMENT,
