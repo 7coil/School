@@ -149,7 +149,7 @@ public class Room {
       sqlStatement = dbSession.getConnection().prepareStatement(sql);
       sqlStatement.setInt(1, iReqRoom);
       resultSet = sqlStatement.executeQuery();
-      if (bRC == resultSet.next()) {
+      if (resultSet.next()) {
         this.iRoomNumber = iReqRoom;
         this.iID = resultSet.getInt("ID");
       } else {
@@ -277,10 +277,10 @@ public class Room {
   public static void main(String[] args) {
     Room room = new Room();
 
-    room.getByRoomNumber(402);
+    room.getByRoomNumber(4);
     room.display();
 
-    room.collectRecordByNumber(301);
+    room.collectRecordByNumber(3);
     room.display();
 
     room.collectRecordById(1);
