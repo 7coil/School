@@ -1,0 +1,4 @@
+USE tsh;
+
+EXPLAIN rooms;
+SELECT * FROM ROOMS;

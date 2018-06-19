@@ -15,7 +15,6 @@ CREATE TABLE rooms (
     ID          INT               PRIMARY KEY AUTO_INCREMENT,
     roomNumber  VARCHAR(10),
     floor       VARCHAR(4),
-    class       VARCHAR(10),
     cost        INT,
     occupancy   INT,
     singleBed   INT,
