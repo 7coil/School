@@ -5,10 +5,12 @@ USE tsh;
 
 -- Clean the database
 SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE rooms;
-DROP TABLE roomBookings;
-DROP TABLE bookings;
-DROP TABLE customers;
+DROP TABLE IF EXISTS rooms;
+DROP TABLE IF EXISTS roombookings;
+DROP TABLE IF EXISTS bookings;
+DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS hotels;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE rooms (

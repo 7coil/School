@@ -15,8 +15,16 @@ public class Customer {
   // Class variables
   // ----------------------------------------------------------------------
   // fields in db-table.
-  private int iID;
-  
+  private int ID;
+  private String title;
+  private String surname;
+  private String otherNames;
+  private int gender;
+  private String telephone;
+  private String street;
+  private String city;
+  private String country;
+  private String postZipCode;
 
   private int iNumRows;
 
@@ -47,7 +55,16 @@ public class Customer {
   // Setters
   // ----------------------------------------------------------------------
   private void reset() {
-    iID = 0;
+    ID = 0;
+    title = "";
+    surname = "";
+    otherNames = "";
+    gender = 0;
+    telephone = "";
+    street = "";
+    city = "";
+    country = "";
+    postZipCode = "";
 
     iNumRows = -1; // to spot the difference between empty table & no methods run.
     sz = null;
@@ -100,23 +117,24 @@ public class Customer {
     try {
       System.err.println(this.getClass().getName() + ":: DB connected := " + dbSession.isConnected());
 
-      sql = "SELECT * FROM rooms";
+      sql = "SELECT * FROM customers;";
 
-      if (bId == true) {
-        // searching by primary key (id)
-        sql = sql + " WHERE ID = ?;";
-      } else {
-        // searching by room number
-        sql = sql + " WHERE roomNumber = ?;";
-      }
       System.err.println(this.getClass().getName() + ":: about to exec:= " + sql);
 
       sqlStatement = dbSession.getConnection().prepareStatement(sql);
-      sqlStatement.setInt(1, input);
       resultSet = sqlStatement.executeQuery();
-      
+
       if (resultSet.next()) {
-        iID = resultSet.getInt("ID");
+        ID = resultSet.getInt("ID");
+        title = resultSet.getString("Title");
+        surname = resultSet.getString("Surname");
+        otherNames = resultSet.getString("otherNames");
+        gender = resultSet.getInt("Gender");
+        telephone = resultSet.getString("Telephone");
+        street = resultSet.getString("Street");
+        city = resultSet.getString("City");
+        country = resultSet.getString("Country");
+        postZipCode = resultSet.getString("PostZipCode");
       }
 
       resultSet.close();
@@ -150,7 +168,9 @@ public class Customer {
   // ----------------------------------------------------------------------
   public void display() {
     sz = "::display()";
-    sz = sz + "\n\tID := " + iID;
+    sz = sz + "\n\tID := " + ID;
+    sz = sz + "\n\tTitle := " + title;
+    sz = sz + "\n\tSurname := " + surname;
 
     System.out.println(this.getClass().getName() + sz);
     return;
