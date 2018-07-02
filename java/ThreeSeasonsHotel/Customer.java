@@ -14,7 +14,7 @@ public class Customer {
   // ----------------------------------------------------------------------
   // Class variables
   // ----------------------------------------------------------------------
-  // fields in db-table.
+  // fields in table
   private int ID;
   private String title;
   private String surname;
@@ -113,7 +113,7 @@ public class Customer {
   // Uses a boolean (bId) to determine which mode it is to be set for:
   // true - by primary key (RoomId)
   // false - by main usage field (RoomNumber)
-  public void collectRecord(boolean bId, int input) {
+  public void collectRecord(int input) {
     try {
       System.err.println(this.getClass().getName() + ":: DB connected := " + dbSession.isConnected());
 
@@ -150,27 +150,20 @@ public class Customer {
   }
 
   // ----------------------------------------------------------------------
-  // to use the PK.
-  public void collectRecordById(int id) {
-    collectRecord(true, id);
-    return;
-  }
-
-  // ----------------------------------------------------------------------
-  // to use the main field.
-  public void collectRecordByNumber(int iRoomNumber) {
-    collectRecord(false, iRoomNumber);
-    return;
-  }
-
-  // ----------------------------------------------------------------------
   // utilities
   // ----------------------------------------------------------------------
   public void display() {
     sz = "::display()";
     sz = sz + "\n\tID := " + ID;
-    sz = sz + "\n\tTitle := " + title;
-    sz = sz + "\n\tSurname := " + surname;
+    sz = sz + "\n\ttitle := " + title;
+    sz = sz + "\n\tsurname := " + surname;
+    sz = sz + "\n\totherNames := " + otherNames;
+    sz = sz + "\n\tgender := " + gender;
+    sz = sz + "\n\ttelephone := " + telephone;
+    sz = sz + "\n\tstreet := " + street;
+    sz = sz + "\n\tcity := " + city;
+    sz = sz + "\n\tcountry := " + country;
+    sz = sz + "\n\tpostZipCode := " + postZipCode;
 
     System.out.println(this.getClass().getName() + sz);
     return;
@@ -181,6 +174,9 @@ public class Customer {
   // ----------------------------------------------------------------------
   public static void main(String[] args) {
     Customer customer = new Customer();
+    
+    customer.collectRecord(1);
+    customer.display();
 
     return;
   }
