@@ -103,3 +103,8 @@ INSERT INTO `tsh`.`customers` (`ID`, `Title`, `Surname`, `OtherNames`, `Gender`,
 INSERT INTO `tsh`.`bookings` (`ID`, `CustomerID`, `StartDate`, `EndDate`) VALUES ('1', '12', '2018-05-03', '2018-06-04');
 INSERT INTO `tsh`.`bookings` (`ID`, `CustomerID`, `StartDate`, `EndDate`) VALUES ('2', '2', '2002-01-01', '2002-01-17');
 INSERT INTO `tsh`.`bookings` (`ID`, `CustomerID`, `StartDate`, `EndDate`) VALUES ('3', '5', '1992-08-23', '1992-08-25');
+
+-- Insert some room bookings
+INSERT INTO `tsh`.`roombookings` (`ID`, `RoomID`, `BookingID`) VALUES ('1', '17', '1');
+INSERT INTO `tsh`.`roombookings` (`ID`, `RoomID`, `BookingID`) VALUES ('2', '18', '1');
+INSERT INTO `tsh`.`roombookings` (`ID`, `RoomID`, `BookingID`) VALUES ('3', '2', '2');
