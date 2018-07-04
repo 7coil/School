@@ -244,6 +244,150 @@ public class Room {
     return;
   }
 
+  public int getiID() {
+    return iID;
+  }
+
+  public void setiID(int iID) {
+    this.iID = iID;
+  }
+
+  public int getiRoomNumber() {
+    return iRoomNumber;
+  }
+
+  public void setiRoomNumber(int iRoomNumber) {
+    this.iRoomNumber = iRoomNumber;
+  }
+
+  public int getiFloor() {
+    return iFloor;
+  }
+
+  public void setiFloor(int iFloor) {
+    this.iFloor = iFloor;
+  }
+
+  public int getiCost() {
+    return iCost;
+  }
+
+  public void setiCost(int iCost) {
+    this.iCost = iCost;
+  }
+
+  public int getiOccupancy() {
+    return iOccupancy;
+  }
+
+  public void setiOccupancy(int iOccupancy) {
+    this.iOccupancy = iOccupancy;
+  }
+
+  public int getSingleBed() {
+    return singleBed;
+  }
+
+  public void setSingleBed(int singleBed) {
+    this.singleBed = singleBed;
+  }
+
+  public int getDoubleBed() {
+    return doubleBed;
+  }
+
+  public void setDoubleBed(int doubleBed) {
+    this.doubleBed = doubleBed;
+  }
+
+  public int getTripleBed() {
+    return tripleBed;
+  }
+
+  public void setTripleBed(int tripleBed) {
+    this.tripleBed = tripleBed;
+  }
+
+  public int getQueenBed() {
+    return queenBed;
+  }
+
+  public void setQueenBed(int queenBed) {
+    this.queenBed = queenBed;
+  }
+
+  public int getKingBed() {
+    return kingBed;
+  }
+
+  public void setKingBed(int kingBed) {
+    this.kingBed = kingBed;
+  }
+
+  public int getTwinBed() {
+    return twinBed;
+  }
+
+  public void setTwinBed(int twinBed) {
+    this.twinBed = twinBed;
+  }
+
+  public boolean isbEnsuite() {
+    return bEnsuite;
+  }
+
+  public void setbEnsuite(boolean bEnsuite) {
+    this.bEnsuite = bEnsuite;
+  }
+
+  public boolean isbMinibar() {
+    return bMinibar;
+  }
+
+  public void setbMinibar(boolean bMinibar) {
+    this.bMinibar = bMinibar;
+  }
+
+  public boolean isbJacuzzi() {
+    return bJacuzzi;
+  }
+
+  public void setbJacuzzi(boolean bJacuzzi) {
+    this.bJacuzzi = bJacuzzi;
+  }
+
+  public boolean isbSeaview() {
+    return bSeaview;
+  }
+
+  public void setbSeaview(boolean bSeaview) {
+    this.bSeaview = bSeaview;
+  }
+
+  public boolean isbHoneymoon() {
+    return bHoneymoon;
+  }
+
+  public void setbHoneymoon(boolean bHoneymoon) {
+    this.bHoneymoon = bHoneymoon;
+  }
+
+  public boolean isbFamily() {
+    return bFamily;
+  }
+
+  public void setbFamily(boolean bFamily) {
+    this.bFamily = bFamily;
+  }
+
+  public int getiNumRows() {
+    return iNumRows;
+  }
+
+  public void setiNumRows(int iNumRows) {
+    this.iNumRows = iNumRows;
+  }
+
   // ----------------------------------------------------------------------
   // utilities
   // ----------------------------------------------------------------------

@@ -4,7 +4,7 @@
  * This is an object which interfaces with the database to provide customer
  * data for the program.
  * 
- * @author Leondro Lio
+ * @author 7coil
  */
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

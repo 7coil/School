@@ -4,7 +4,7 @@
  * This is an object which interfaces with the database to provide customer
  * data for the program.
  * 
- * @author Leondro Lio
+ * @author 7coil
  */
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -145,7 +145,7 @@ public class RoomBookings {
   // test rig
   // ----------------------------------------------------------------------
   public static void main(String[] args) {
-    var roomBookings = new RoomBookings();
+    RoomBookings roomBookings = new RoomBookings();
     roomBookings.collectRecord(2);
     roomBookings.display();
 

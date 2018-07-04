@@ -4,7 +4,7 @@
  * This is an object which interfaces with the database to provide customer
  * data for the program.
  * 
- * @author Leondro Lio
+ * @author 7coil
  */
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -150,7 +150,7 @@ public class Bookings {
   // test rig
   // ----------------------------------------------------------------------
   public static void main(String[] args) {
-    var bookings = new Bookings();
+    Bookings bookings = new Bookings();
     
     bookings.collectRecord(1);
     bookings.display();
