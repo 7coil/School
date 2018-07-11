@@ -38,6 +38,12 @@ public class MenuSystem {
     return selection;
   }
 
+  private boolean nextBoolean() {
+    String input = scanner.next();
+    if (input.toLowerCase().charAt(0) == 'y') return true;
+    return false;
+  }
+
   public void mainMenu() {
     String options[] = { "Quit", "Fetch", "Insert", "Delete" };
 
@@ -97,7 +103,7 @@ public class MenuSystem {
   }
 
   public void printRooms() {
-    var room = new Room();
+    Room room = new Room();
     int roomLength = room.countRows();
     
     String print = "ID\troomNumber\tfloor\tcost\toccupancy\tsingleBed\tdoubleBed\ttripleBed\tqueenBed\tkingBed\ttwinBed\tensuite\tminibar\tjacuzzi\tseaView\tfamily\thoneyMoon\n";
@@ -132,6 +138,53 @@ public class MenuSystem {
   }
 
   public void addRoom() {
+    Room room = new Room();
+
+    // Set the Room ID to be the next available autoincrement ID
+    room.setiID(room.countRows() + 1);
+
+    // Ask user for every single field
+    System.out.println("Please enter the Room Number");
+    room.setiRoomNumber(scanner.nextInt());
+    System.out.println("Please enter the Floor");
+    room.setiFloor(scanner.nextInt());
+    System.out.println("Please enter the Cost");
+    room.setiCost(scanner.nextInt());
+    System.out.println("Please enter the Occupancy");
+    room.setiOccupancy(scanner.nextInt());
+    System.out.println("Please enter the number of single bed(s) available");
+    room.setSingleBed(scanner.nextInt());
+    System.out.println("Please enter the number of double bed(s) available");
+    room.setDoubleBed(scanner.nextInt());
+    System.out.println("Please enter the number of triple bed(s) available");
+    room.setTripleBed(scanner.nextInt());
+    System.out.println("Please enter the number of queen bed(s) available");
+    room.setQueenBed(scanner.nextInt());
+    System.out.println("Please enter the number of king bed(s) available");
+    room.setKingBed(scanner.nextInt());
+    System.out.println("Please enter the number of twin bed(s) available");
+    room.setTwinBed(scanner.nextInt());
+    System.out.println("Please enter Y/N if the room is: Ensuite");
+    room.setbEnsuite(this.nextBoolean());
+    System.out.println("Please enter Y/N if the room is: Minibar");
+    room.setbMinibar(this.nextBoolean());
+    System.out.println("Please enter Y/N if the room is: Jacuzzi");
+    room.setbJacuzzi(this.nextBoolean());
+    System.out.println("Please enter Y/N if the room is: Seaview");
+    room.setbSeaview(this.nextBoolean());
+    System.out.println("Please enter Y/N if the room is: Honeymoon");
+    room.setbHoneymoon(this.nextBoolean());
+    System.out.println("Please enter Y/N if the room is: Family");
+    room.setbFamily(this.nextBoolean());
+
+    room.display();
+    System.out.println("Is this correct? Please enter Y/N.");
+    if (this.nextBoolean()) {
+      room.write();
+    } else {
+      System.out.println("Cancelled.");
+    }
+
     System.err.println("addRoom");
   }
 

@@ -21,10 +21,10 @@ public class Session {
   // ----------------------------------------------------------------------
   // JDBC driver name and database URL
   final String JDBC_DRIVER = "org.mysql.jdbc.Driver";
-  final String DB_URL = "jdbc:mysql://192.168.0.17:3306/tsh";
+  final String DB_URL = "jdbc:mysql://127.0.0.1:3306/tsh";
 
   // Database credentials
-  final String USER = "leondro";
+  final String USER = "root";
   final String PASS = "microsoft";
   Connection conn = null;
   boolean bConnected;

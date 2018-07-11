@@ -229,6 +229,47 @@ public class Room {
     }
     return;
   }
+  
+  public void write() {
+    boolean bRC = false;
+    try {
+      System.err.println(this.getClass().getName() + ":: DB connected := " + dbSession.isConnected());
+
+      sql = "REPLACE INTO `tsh`.`rooms` (`ID`, `roomNumber`, `floor`, `cost`, `occupancy`, `singleBed`, `doubleBed`, `tripleBed`, `queenBed`, `kingBed`, `twinBed`, `ensuite`, `minibar`, `jacuzzi`, `seaView`, `family`, `honeyMoon`) VALUES"
+          + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+      System.err.println(this.getClass().getName() + ":: about to exec:= " + sql);
+
+      sqlStatement = dbSession.getConnection().prepareStatement(sql);
+      sqlStatement.setInt(1, this.getiID());
+      sqlStatement.setInt(2, this.getiRoomNumber());
+      sqlStatement.setInt(3, this.getiFloor());
+      sqlStatement.setInt(4, this.getiCost());
+      sqlStatement.setInt(5, this.getiOccupancy());
+      sqlStatement.setInt(6, this.getSingleBed());
+      sqlStatement.setInt(7, this.getDoubleBed());
+      sqlStatement.setInt(8, this.getTripleBed());
+      sqlStatement.setInt(9, this.getQueenBed());
+      sqlStatement.setInt(10, this.getKingBed());
+      sqlStatement.setInt(11, this.getTwinBed());
+      sqlStatement.setBoolean(12, this.isbEnsuite());
+      sqlStatement.setBoolean(13, this.isbMinibar());
+      sqlStatement.setBoolean(14, this.isbJacuzzi());
+      sqlStatement.setBoolean(15, this.isbSeaview());
+      sqlStatement.setBoolean(16, this.isbHoneymoon());
+      sqlStatement.setBoolean(17, this.isbFamily());
+      resultSet = sqlStatement.executeQuery();
+
+      resultSet.close();
+    } catch (SQLException se) {
+      System.err.println(this.getClass().getName() + ":: SQL error:: " + se);
+      se.printStackTrace();
+    } catch (Exception e) {
+      System.err.println(this.getClass().getName() + ":: Error:: " + e);
+      e.printStackTrace();
+    } finally {
+    }
+  }
 
   // ----------------------------------------------------------------------
   // to use the PK.
@@ -249,6 +290,7 @@ public class Room {
   }
 
   public void setiID(int iID) {
+    if (iID < 0) throw new RuntimeException("The ID must be greater than 0");
     this.iID = iID;
   }
 
@@ -421,14 +463,7 @@ public class Room {
   public static void main(String[] args) {
     Room room = new Room();
 
-    room.getByRoomNumber(4);
-    room.display();
-
-    room.collectRecordByNumber(3);
-    room.display();
-
-    room.collectRecordById(1);
-    room.display();
+    room.setiID(25565);
 
     return;
   }
